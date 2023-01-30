@@ -134,10 +134,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Robot
       objectReference: {fileID: 0}
-    - target: {fileID: -8653719598885068355, guid: ba30f2b0be41e074ca66b7b5354e8f07, type: 3}
-      propertyPath: m_TagString
-      value: Player
-      objectReference: {fileID: 0}
     - target: {fileID: -7612134745388893277, guid: ba30f2b0be41e074ca66b7b5354e8f07, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.2892797
@@ -172,7 +168,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -7552582706839291426, guid: ba30f2b0be41e074ca66b7b5354e8f07, type: 3}
       propertyPath: m_LocalScale.x
-      value: 1
+      value: 1.13
       objectReference: {fileID: 0}
     - target: {fileID: -7552582706839291426, guid: ba30f2b0be41e074ca66b7b5354e8f07, type: 3}
       propertyPath: m_LocalScale.y
