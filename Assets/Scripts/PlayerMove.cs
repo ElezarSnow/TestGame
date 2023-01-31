@@ -2,10 +2,9 @@ using UnityEngine;
 
 public class PlayerMove : MonoBehaviour
 {
-  Vector2 v_pos;
   Rigidbody2D rgbd_2d;
   private Animator animus;
-  public float speed = 5;
+  public int speed = 2;
   private int lastStep = 0;
   //  0 - в первом кадре никто ничего не жал, поэтому ни A ни D не могли быть нажаты
   // -1 - записывается когда последняя клавиша была A
@@ -13,15 +12,19 @@ public class PlayerMove : MonoBehaviour
 
   void Awake()
   {
-    v_pos = new Vector2();
     rgbd_2d = GetComponent<Rigidbody2D>();
     animus = GetComponent<Animator>();
   }
   void Update()
   {
-    v_pos.x = Input.GetAxisRaw("Horizontal") * speed;
-    v_pos.y = Input.GetAxisRaw("Vertical") * speed;
-    rgbd_2d.velocity = v_pos;
+    rgbd_2d.velocity = new Vector2(
+    // V = 60 FPS
+    // t = 1s
+    // S = 60 px
+
+       Input.GetAxisRaw("Horizontal") * speed * Time.deltaTime,  // x
+       Input.GetAxisRaw("Vertical")     // y
+     );
 
     if (Input.GetKeyDown(KeyCode.D))
     {
@@ -29,6 +32,8 @@ public class PlayerMove : MonoBehaviour
       animus.SetBool("isRun", true);
       lastStep = 1;
     }
+
+    if ( Input.GetKey(KeyCode.D) ) Debug.Log(Input.GetAxisRaw("Horizontal") * speed);
 
     if (Input.GetKeyDown(KeyCode.A))
     {
